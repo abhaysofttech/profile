@@ -1,0 +1,1080 @@
+    html,
+    body {
+        height: 100%;
+        font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
+    }
+    
+    .redBorder {
+        border: 2px solid red;
+    }
+    
+    .blueBorder {
+        border: 2px solid #004f71;
+    }
+    
+    .noMargin {
+        margin: 0px !important;
+    }
+    
+    .noPadding {
+        padding: 0px !important;
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: normal !important;
+    }
+    
+    h2 {
+        font-size: 1.4em;
+    }
+    
+    h3,
+    .h3 {
+        font-size: 1.2em;
+        margin: 0px !important;
+    }
+    
+    section {
+        padding: 10px 0;
+    }
+    
+    .scroll {
+        overflow: scroll;
+    }
+    
+    .view-container {
+        background: #999;
+    }
+    
+    .viewBlock {
+        /* background-image: url('https://publiccdn.sharepointonline.com/jda365.sharepoint.com/sites/OneStop/NewOneStopCDN/JDAUniversity/background.jpg'); */
+        background-position: center;
+        background-size: cover;
+    }
+    
+    .full-height {
+        height: 100%;
+    }
+    
+    .middle-xs {
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        -webkit-box-align: center;
+        align-items: center;
+    }
+    
+    .center-xs {
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .img-responsive {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        max-height: 100%;
+    }
+    
+    .logo-responsive {
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 100%;
+    }
+    
+    .jdawhite-text {
+        color: #fff !important;
+    }
+    
+    .jdared-text {
+        color: #ce0037 !important;
+    }
+    
+    .jdagreen-text {
+        color: #78aa00 !important;
+    }
+    
+    .jdagray-text {
+        color: #e8e8e8 !important;
+    }
+    
+    .jdadarkgray-text {
+        color: #e8e8e8 !important;
+    }
+    
+    .jdagraycustom-text {
+        color: #b0b0b0 !important;
+    }
+    
+    .jdadarkblue-text {
+        color: #004f71 !important;
+    }
+    
+    .jdaorange-text {
+        color: #ff6a13 !important;
+    }
+    
+    .jdayellow-text {
+        color: #ffb500 !important;
+    }
+    
+    .jdablue-text {
+        color: #00a9e0 !important;
+    }
+    
+    .jdapurple-text {
+        color: #8f1a95 !important;
+    }
+    
+    .jdared-background {
+        background-color: #ce0037 !important;
+    }
+    
+    .jdagreen-background {
+        background-color: #78aa00 !important;
+    }
+    
+    .jdadarkblue-background {
+        background-color: #004f71 !important;
+    }
+    
+    .jdaorange-background {
+        background-color: #ff6a13 !important;
+    }
+    
+    .jdayellow-background {
+        background-color: #ffb500 !important;
+    }
+    
+    .jdablue-background {
+        background-color: #00a9e0 !important;
+    }
+    
+    .jdapurple-background {
+        background-color: #8f1a95 !important;
+    }
+    
+    .jdawhite-background {
+        background-color: #fff !important;
+    }
+    
+    .img-box {
+        border: 1px solid #ccc;
+        box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+    }
+    
+    .pane,
+    .view {
+        perspective: 1000px;
+        -webkit-transform-origin: 100% 50%;
+        transform-origin: 100% 50%;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-transition: all 0.3s ease-in;
+        -moz-transition: all 0.3s ease-in;
+        -o-transition: all 0.3s ease-in;
+        transition: all 0.3s ease-in;
+    }
+    
+    .addperspective {
+        -ms-transform: translate3d(9vw, 0, -18vw) rotateY(-20deg);
+        -webkit-transform: translate3d(9vw, 0, -18vw) rotateY(-20deg);
+        transform: translate3d(9vw, 0, -18vw) rotateY(-20deg);
+    }
+    /*Css for the Home (Landing Page) ++++++++++++++++++++++++++++++++++++++++++++*/
+    
+    .header {
+        height: 60px;
+    }
+    
+    .logo {
+        max-width: 170px;
+        height: 100%;
+    }
+    
+    .JDA_logo {
+        max-width: 100px;
+        float: right;
+    }
+    
+    .mainBody {
+        height: calc(100% - 60px);
+        /*overflow: scroll;*/
+    }
+    
+    .landingContainer {
+        padding: 0 5%;
+    }
+    
+    .tabContainer {
+        height: 400px;
+        margin-bottom: 10px;
+        position: relative;
+    }
+    
+    .tab1 {
+        /*background: #fae2d2;*/
+        background-image: url('https://publiccdn.sharepointonline.com/jda365.sharepoint.com/sites/OneStop/NewOneStopCDN/JDAUniversity/background/orangeJdaTriangle.png'), url('https://publiccdn.sharepointonline.com/jda365.sharepoint.com/sites/OneStop/NewOneStopCDN/JDAUniversity/home1.jpg');
+        background-position: right bottom, left;
+        background-repeat: no-repeat, no-repeat;
+        background-size: cover;
+    }
+    
+    .tabBackground {
+        /*background: #fae2d2;*/
+        /*background-image: url('https://publiccdn.sharepointonline.com/jda365.sharepoint.com/sites/OneStop/NewOneStopCDN/JDAUniversity/home1.jpg');*/
+        background-position: right bottom, left;
+        background-repeat: no-repeat, no-repeat;
+        background-size: cover;
+    }
+    
+    .tab2 {
+        background: #fef1c9;
+    }
+    
+    .tab3 {
+        background: #dbe8f5;
+    }
+    
+    .tab4 {
+        background: #ddeed6;
+    }
+    
+    .tabImg {
+        height: calc(100% - 60px);
+        padding: 10px
+    }
+    
+    .tabLink {
+        height: 60px;
+        padding: 8px 10px;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+    
+    .tab1 .tabLink {
+        background: #f6c9a8;
+    }
+    
+    .tab2 .tabLink {
+        background: #fde594;
+    }
+    
+    .tab3 .tabLink {
+        background: #bcd3eb;
+    }
+    
+    .tab4 .tabLink {
+        background: #c1ddb0;
+    }
+    
+    .tab1Img,
+    .tab2Img,
+    .tab3Img,
+    .tab4Img {
+        background-position: center;
+        background-size: cover;
+        height: 100%;
+    }
+    
+    .tab1Img {
+        background-image: url('https://publiccdn.sharepointonline.com/jda365.sharepoint.com/sites/OneStop/NewOneStopCDN/JDAUniversity/home1.jpg');
+    }
+    
+    .tab2Img {
+        background-image: url('https://publiccdn.sharepointonline.com/jda365.sharepoint.com/sites/OneStop/NewOneStopCDN/JDAUniversity/home2.jpg');
+    }
+    
+    .tab3Img {
+        background-image: url('https://publiccdn.sharepointonline.com/jda365.sharepoint.com/sites/OneStop/NewOneStopCDN/JDAUniversity/home3.jpg');
+    }
+    
+    .tab4Img {
+        background-image: url('https://publiccdn.sharepointonline.com/jda365.sharepoint.com/sites/OneStop/NewOneStopCDN/JDAUniversity/home4.jpg');
+    }
+    
+    .tabTitle {
+        font-size: 150%;
+        color: #fff;
+    }
+    
+    .level2-container {
+        border-bottom: 1px solid #e6eaea;
+    }
+    
+    .level1ExplandIcon {
+        font-size: 26px;
+        color: #969494;
+    }
+    
+    .level2ExplandIcon {
+        font-size: 20px;
+        color: #969494;
+    }
+    
+    .level1-container button {
+        background: none;
+        border: 0px;
+    }
+    
+    .closeSideMenuBtn {
+        background: none;
+        border: 0px;
+    }
+    
+    .closeSideMenu {
+        font-size: 28px;
+        color: #999;
+    }
+    
+    .level1-containBlock {
+        padding: 10px;
+        border-bottom: 1px solid #e6eaea;
+    }
+    
+    .level2-containBlock {
+        padding: 15px;
+        padding-left: 25px;
+        cursor: pointer;
+        padding-right: 0px;
+    }
+    
+    .level1-container span {
+        color: #004f71;
+        /*font-size: calc(.9vh + .9vw + .5vmin);*/
+        font-size: 19px;
+        cursor: pointer;
+    }
+    
+    .level2-container span {
+        font-size: 17px;
+        line-height: normal;
+    }
+    /*End ++++++++++++++++++++++++++++++++++++++++++++++++*/
+    /* Industry Home Css +++++++++++++++++++++++++++++++++++++++++*/
+    
+    .jda-header {
+        height: 60px;
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+    }
+    
+    .jda-header img {
+        position: absolute !important;
+        width: calc(2vh + 2vw + 1vmin) !important;
+        height: calc(1.2vh + 1.2vw + 1vmin) !important;
+        border-radius: 5px !important;
+        margin-top: 1vh !important;
+        top: 0% !important;
+        right: 5px !important;
+        padding: 0px !important;
+        border-radius: 0px !important;
+        background: none !important;
+        box-shadow: none !important;
+        margin-left: 861px;
+    }
+    
+    .jda-iconew {
+        float: right;
+        border-left: 192px solid transparent;
+        border-top: calc(4vh + 2vw + 1vmin) solid #00a9e0;
+        border-left: calc(7vh + 7vw + 1vmin) solid transparent;
+        cursor: pointer;
+    }
+    
+    #case-title {
+        display: block;
+        margin-left: 25px;
+        height: 100%;
+        width: 35%;
+    }
+    
+    #page-title {
+        font-size: calc(1vw + 1vh + .5vmin);
+        color: #fff;
+        font-family: 'Open Sans';
+        position: absolute;
+        padding: calc(0.8vh + 0.3vw + .5vmin);
+        background: #00a9e0;
+        left: 0px;
+    }
+    
+    #industryHM .scroll {
+        height: 100%;
+        overflow: hidden;
+    }
+    
+    .body-part {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        opacity: 0.9;
+        position: absolute;
+        top: 0;
+        left: 0;
+        /* padding: calc(1.2vh + 1.2vw + 1vmin); */
+        padding-top: 35px;
+        background: transparent;
+        box-sizing: border-box;
+        box-shadow: 0 -1px 10px rgba(0, 0, 0, .7);
+        transform-style: inherit;
+    }
+    
+    .industryHomeScroll {
+        margin: 0;
+        padding: 0;
+        perspective: 1px;
+        transform-style: preserve-3d;
+        height: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        font-family: 'Open Sans';
+        background: #fff;
+        position: relative;
+        width: 100%;
+    }
+    
+    .subIndustryCard {
+        height: 180px;
+        position: relative;
+        margin: 10px 10px;
+        background-position: center center;
+        background-size: cover;
+    }
+    
+    .subCatogryLogo {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto;
+        border-radius: 50%;
+        margin-top: 25px;
+        background-position: center center;
+        background-size: cover;
+    }
+    
+    .subCatogryTitle {
+        font-size: 10px;
+        font-weight: 600;
+        padding: 10px 5px;
+        text-align: left;
+        line-height: normal;
+        color: #fff;
+    }
+    
+    .cardDetails {
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+    }
+    
+    #video_modal {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        top: 0px;
+        left: 0px;
+        z-index: 999999999;
+        transform: translateY(0px);
+        -webkit-transform: translateY(0px);
+    }
+    
+    #video_modal .close-icon {
+        top: 0px !important;
+        z-index: 999998;
+        color: #fff;
+        height: 100%;
+    }
+    
+    #videoplayer {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+    
+    .menu-fullscreen {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+    span.ion-close {
+        font-size: 30px;
+        display: inline-block;
+        right: 1%;
+        position: absolute;
+        top: 12%;
+        cursor: pointer;
+        color: #4497ce;
+    }
+    
+    header.main-menu-header {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 8%;
+        z-index: 999999;
+    }
+    
+    .subCatogrySubTitle {
+        font-size: 11px;
+        padding: 0 3px;
+        line-height: normal;
+    }
+    
+    .videoPlayIcon {
+        position: absolute;
+        display: inline-flex;
+        background: #CE0037;
+        color: #fff;
+        width: 60px;
+        height: 40px;
+        border-radius: 5px;
+        top: 41%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 22px;
+        cursor: pointer;
+    }
+    
+    .readMoreButton {
+        position: absolute;
+        bottom: 20px;
+        left: 0px;
+        right: 0;
+    }
+    
+    .smallBtn {
+        background: #00a9e0;
+        border: 0;
+        color: #fff;
+        padding: 10px 20px;
+        font-weight: 200;
+    }
+    
+    .cardBody:nth-child(1n) .subIndustryCard {
+        border-top: 3px solid #CE0037;
+    }
+    
+    .cardBody:nth-child(2n) .subIndustryCard {
+        border-top: 3px solid #78AA00;
+    }
+    
+    .cardBody:nth-child(3n) .subIndustryCard {
+        border-top: 3px solid #FF6A13;
+    }
+    
+    .cardBody:nth-child(4n) .subIndustryCard {
+        border-top: 3px solid #00A9E0;
+    }
+    
+    .cardBody:nth-child(5n) .subIndustryCard {
+        border-top: 3px solid #ffb500;
+    }
+    
+    .cardBody:nth-child(6n) .subIndustryCard {
+        border-top: 3px solid #8f1a95;
+    }
+    
+    .mobileView:nth-child(2n) .commingSoon {
+        background: #ce0037;
+        display: inline-block;
+        position: ABSOLUTE;
+        right: 0;
+        left: unset;
+        bottom: 50px;
+        padding: 8px 23px;
+        color: #fff;
+    }
+    
+    .mobileView:nth-child(3n) .commingSoon {
+        background: #ce0037;
+        display: inline-block;
+        position: ABSOLUTE;
+        left: 0;
+        right: unset;
+        bottom: 50px;
+        padding: 8px 23px;
+        color: #fff;
+    }
+    /* 
+.cardBody:nth-child(1n) .cardDetails {
+    background: linear-gradient(to right, #004f71 10%, rgba(206, 0, 55, 0.16));
+}
+
+.cardBody:nth-child(2n) .cardDetails {
+    background: linear-gradient(to right, #78AA00 10%, rgba(120, 170, 0, 0.16));
+}
+
+.cardBody:nth-child(3n) .cardDetails {
+    background: linear-gradient(to right, #FF6A13 10%, rgba(255, 106, 19, .16));
+}
+
+.cardBody:nth-child(4n) .cardDetails {
+    background: linear-gradient(to right, #00A9E0 10%, rgba(0, 169, 224, .16));
+}
+
+.cardBody:nth-child(5n) .cardDetails {
+    background: linear-gradient(to right, #ffb500 10%, rgba(255, 181, 0, .16));
+}
+
+.cardBody:nth-child(6n) .cardDetails {
+    background: linear-gradient(to right, #8f1a95 10%, rgba(143, 26, 149, .16));
+} */
+    
+    .cardDetails {
+        /* background: linear-gradient(to right, #004f71 10%, #00a9e0); */
+        background: #004f71;
+    }
+    
+    .sideMenuHeader {
+        height: 80px;
+    }
+    
+    .sideMenuBody {
+        height: calc(100% - 80px);
+    }
+    
+    .linkArrow {
+        background-image: url(https://publiccdn.sharepointonline.com/jda365.sharepoint.com/sites/OneStop/NewOneStopCDN/JDAUniversity/background/whiteArrow.png);
+        background-position: right center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        cursor: pointer;
+    }
+    /* Industry Home Css ----------------------------------------------*/
+    
+    @media only screen and (max-width: 30em) {
+        .mobileView {
+            height: 24.3%;
+            margin-bottom: 2.33%;
+            padding: 0px;
+        }
+        .linkArrow {
+            background: none;
+        }
+        .mobileView:nth-child(4) {
+            height: 25%;
+            margin-bottom: 0%;
+        }
+        .mobileView:nth-child(2n) .tabLink {
+            float: right;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+        .mobileView:nth-child(2n) .tabTitle {
+            float: right;
+        }
+        .tabContainer {
+            height: 100%;
+        }
+        .tabImg {
+            height: calc(100% - 50px);
+        }
+        .tabLink {
+            height: 50px;
+            width: 70%;
+        }
+        .tabTitle {
+            font-size: 17px;
+        }
+        /*Css for header*/
+        .header {
+            height: 50px;
+        }
+        .logo {
+            max-width: 105px;
+            margin-left: 40px;
+        }
+        .sideMenuHeader .logo {
+            margin-left: 0px;
+        }
+        .JDA_logo {
+            max-width: 55px;
+            float: right;
+        }
+        #menu-icon {
+            width: 30px;
+            height: 30px;
+            top: 10px;
+            left: 5px;
+            background: none !important;
+        }
+        #richtextTemplate #menu-icon,
+        #industryDash #menu-icon {
+            top: 3px !important;
+        }
+        #richtextTemplate #menu-icon span,
+        #industryDash #menu-icon span {
+            background: #fff !important;
+        }
+        #case-title {
+            height: 37px;
+        }
+        #page-title span {
+            margin-left: 35px;
+        }
+        #menu-icon span {
+            background: #004f71;
+        }
+        .landingContainer {
+            padding: 0px;
+        }
+        #menu-icon span:nth-child(1) {
+            top: 6px;
+        }
+        #menu-icon span:nth-child(2) {
+            top: 13px;
+        }
+        #menu-icon span:nth-child(3) {
+            top: 20px;
+        }
+        .menu-title {
+            top: 81px;
+            width: 22px;
+        }
+        .mtext {
+            font-size: 10px;
+        }
+        .sideMenuHeader {
+            height: 50px;
+        }
+        .closeSideMenu {
+            font-size: 23px;
+        }
+        .level2-containBlock {
+            padding: 8px;
+            padding-left: 6px;
+        }
+        .level1-container span {
+            font-size: 17px;
+        }
+        .level1ExplandIcon {
+            font-size: 18px;
+        }
+        .level2ExplandIcon {
+            font-size: 16px;
+        }
+        .level2-container span {
+            font-size: 14px;
+        }
+        /*End Css for the Header*/
+        /*Css for Industory Home Page +++++++++++++++++++++++++++*/
+        #page-title {
+            font-size: 15px;
+        }
+        /* End Css for Industry Home Page --------------------------*/
+    }
+    
+    @media only screen and (min-width: 31.250em) and (max-width: 48em) {
+        .mobileView {
+            -ms-flex-preferred-size: 50%;
+            flex-basis: 50%;
+            max-width: 50%;
+            height: 50%;
+        }
+        .tabContainer {
+            height: 100%;
+        }
+        .sideMenu {
+            -ms-flex-preferred-size: 50%;
+            -webkit-flex-basis: 50%;
+            flex-basis: 50%;
+            max-width: 50%;
+        }
+        .openCloseMenu {
+            -ms-flex-preferred-size: 50%;
+            -webkit-flex-basis: 50%;
+            flex-basis: 50%;
+            max-width: 50%;
+        }
+        /*Css for header*/
+        .header {
+            height: 50px;
+        }
+        .logo {
+            max-width: 105px;
+        }
+        .JDA_logo {
+            max-width: 55px;
+            float: right;
+        }
+        #menu-icon {
+            width: 30px;
+            height: 30px;
+            top: 51px;
+        }
+        #menu-icon span:nth-child(1) {
+            top: 6px;
+        }
+        #menu-icon span:nth-child(2) {
+            top: 13px;
+        }
+        #menu-icon span:nth-child(3) {
+            top: 20px;
+        }
+        .mobileView:nth-child(2n) .tabBackground {
+            background-position: left;
+        }
+        .menu-title {
+            top: 81px;
+            width: 22px;
+        }
+        .mtext {
+            font-size: 10px;
+        }
+        .sideMenuHeader {
+            height: 50px;
+        }
+        .closeSideMenu {
+            font-size: 23px;
+        }
+        .level2-containBlock {
+            padding: 8px;
+            padding-left: 6px;
+        }
+        .level1-container span {
+            font-size: 17px;
+        }
+        .level1ExplandIcon {
+            font-size: 18px;
+        }
+        .level2ExplandIcon {
+            font-size: 16px;
+        }
+        .level2-container span {
+            font-size: 14px;
+        }
+        .landingContainer {
+            padding: 0 1%;
+        }
+        .tabLink {
+            height: 40px;
+        }
+        .tabTitle {
+            font-size: 100%;
+            color: #fff;
+        }
+        .mobileView {
+            padding: 2px;
+        }
+        .mobileView:nth-child(2n) .commingSoon,
+        .mobileView:nth-child(3n) .commingSoon {
+            background: #ce0037;
+            display: inline-block;
+            position: ABSOLUTE;
+            right: 0;
+            left: unset;
+            bottom: 40px;
+            padding: 5px 11px;
+            color: #fff;
+        }
+        /*End Css for the Header*/
+    }
+    
+    @media only screen and (min-width: 48em) {
+        .tabContainer {
+            height: 300px;
+        }
+        .tabImg {
+            height: calc(100% - 50px);
+        }
+        .tabLink {
+            height: 50px;
+        }
+        .tabTitle {
+            font-size: 21px;
+        }
+        .header {
+            height: 50px;
+        }
+        .logo {
+            max-width: 105px;
+        }
+        .JDA_logo {
+            max-width: 55px;
+            float: right;
+        }
+        #menu-icon {
+            width: 30px;
+            height: 30px;
+            top: 51px;
+        }
+        #menu-icon span:nth-child(1) {
+            top: 6px;
+        }
+        #menu-icon span:nth-child(2) {
+            top: 13px;
+        }
+        #menu-icon span:nth-child(3) {
+            top: 20px;
+        }
+        .menu-title {
+            top: 81px;
+            width: 22px;
+        }
+        .mtext {
+            font-size: 10px;
+        }
+        .sideMenuHeader {
+            height: 50px;
+        }
+        .closeSideMenu {
+            font-size: 23px;
+        }
+        .level2-containBlock {
+            padding: 8px;
+            padding-left: 6px;
+        }
+        .level1-container span {
+            font-size: 17px;
+        }
+        .level1ExplandIcon {
+            font-size: 18px;
+        }
+        .level2ExplandIcon {
+            font-size: 16px;
+        }
+        .level2-container span {
+            font-size: 14px;
+        }
+    }
+    /* Css for md resolution*/
+    
+    @media only screen and (min-width: 62em) {
+        .header {
+            height: 50px;
+        }
+        .logo {
+            max-width: 105px;
+        }
+        .JDA_logo {
+            max-width: 55px;
+            float: right;
+        }
+        #menu-icon {
+            width: 30px;
+            height: 30px;
+            top: 51px;
+        }
+        #menu-icon span:nth-child(1) {
+            top: 6px;
+        }
+        #menu-icon span:nth-child(2) {
+            top: 13px;
+        }
+        #menu-icon span:nth-child(3) {
+            top: 20px;
+        }
+        .menu-title {
+            top: 81px;
+            width: 22px;
+        }
+        .mtext {
+            font-size: 10px;
+        }
+        .sideMenuHeader {
+            height: 50px;
+        }
+        .closeSideMenu {
+            font-size: 23px;
+        }
+        .level2-containBlock {
+            padding: 8px;
+            padding-left: 6px;
+        }
+        .level1-container span {
+            font-size: 17px;
+        }
+        .level1ExplandIcon {
+            font-size: 18px;
+        }
+        .level2ExplandIcon {
+            font-size: 16px;
+        }
+        .level2-container span {
+            font-size: 14px;
+        }
+    }
+    
+    @media only screen and (min-width: 75em) {
+        .tabContainer {
+            height: 400px;
+        }
+        .tabImg {
+            height: calc(100% - 60px);
+        }
+        .tabLink {
+            height: 75px;
+        }
+        .header {
+            height: 60px;
+        }
+        .logo {
+            max-width: 165px;
+        }
+        .JDA_logo {
+            max-width: 90px;
+            float: right;
+        }
+        #menu-icon {
+            width: 40px;
+            height: 40px;
+            top: 61px;
+        }
+        #menu-icon span:nth-child(1) {
+            top: 8px;
+        }
+        #menu-icon span:nth-child(2) {
+            top: 18px;
+        }
+        #menu-icon span:nth-child(3) {
+            top: 28px;
+        }
+        .menu-title {
+            top: 101px;
+            width: 30px;
+        }
+        .mtext {
+            font-size: 13px;
+        }
+        .sideMenuHeader {
+            height: 60px;
+        }
+        .closeSideMenu {
+            font-size: 23px;
+        }
+        .level2-containBlock {
+            padding: 15px;
+            padding-left: 8px;
+        }
+        .level1-container span {
+            font-size: 21px;
+        }
+        .level1ExplandIcon {
+            font-size: 25px;
+        }
+        .level2ExplandIcon {
+            font-size: 19px;
+        }
+        .level2-container span {
+            font-size: 17px;
+        }
+    }

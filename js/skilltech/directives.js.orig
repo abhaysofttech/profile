@@ -1,0 +1,774 @@
+﻿angular.module('solutionkits.directives', ['solutionkits.services'])
+//---------Directive for layouts
+.directive("myLayouts", function (CloudMateService, $timeout) {
+    return {
+        // scope: true,
+        scope: {
+            contentId: "@",
+            animChart: "="
+        },
+
+        restrict: 'ECMA',
+
+
+        templateUrl: 'templates/solutionkits/layouts-of-all-types.html',
+        //template: '<div class="slide-content-container"></div>',
+        controller: function ($scope, $http, $sce) {
+
+            $scope.trustAsHtml = function (content) {
+                return $sce.trustAsHtml(content);
+            }
+        },
+        link: function (scope, element, attrs) {
+            //console.log('first link ');
+            // attrs.layoutType = contentInfo[attrs.contentId].layoutType;
+            var dummy, json, iconID;
+            scope.contentData = CloudMateService.getJsonFile(attrs.contentId);
+            //console.log(element);
+            if (scope.contentData !== undefined) {
+                if (scope.contentData.layoutType === 'SVG-Animation') {
+                    json = JSON.parse(scope.contentData.jsonLink);
+                    var width = scope.contentData.animationWidth;
+                    var height = scope.contentData.animationHeight;
+                    var fps = scope.contentData.animationFrames;
+                    var parentID = 'animation-Container' + scope.contentData.animationUniqueName
+                    //scope.createSVGAnimation(json, width, height, fps, parentID);
+                    //var jsonDummy = json;
+                    //console.log(jsonDummy);
+                    if (json !== undefined) {
+                        $timeout(function () {
+                            if (dummy) {
+                                dummy.stop();
+                                dummy = new SVGAnim(json, width, height, fps, {}, parentID);
+                                dummy.play();
+                            } else {
+                                dummy = new SVGAnim(json, width, height, fps, {}, parentID);
+                                dummy.play();
+                            }
+                        }, 1000);
+
+                    }
+                }
+
+                if (scope.contentData.layoutType === 'Two-PieChart-and-Quote') {
+                    scope.tanimChart = scope.animChart || {};
+                    //  console.log(scope.tanimChart);
+                    scope.chartTitle = scope.contentData.Chart[0].title;
+                    scope.chartSource = scope.contentData.source;
+                    scope.twopiechartquote = scope.contentData.quote;
+                    scope[scope.contentData.Chart[0].type] = scope.contentData.Chart[0].Data[0].pie;
+                    scope[scope.contentData.Chart[1].type] = scope.contentData.Chart[1].Data[0].pie;
+                    //  console.log(scope);
+                    scope.bscgridoneOptions = scope.contentData.Chart[0].Data[0].dataoption[0];
+                    scope.bscgridtwoOptions = scope.contentData.Chart[1].Data[0].dataoption[0];
+                    scope.tanimChart.refresh = function () {
+                        var tempchartSource1 = scope[scope.contentData.Chart[0].type];
+                        scope[scope.contentData.Chart[0].type] = {};
+                        var tempchartSource2 = scope[scope.contentData.Chart[1].type];
+                        scope[scope.contentData.Chart[1].type] = {};
+                        $timeout(function () {
+                            scope[scope.contentData.Chart[0].type] = tempchartSource1;
+                            scope[scope.contentData.Chart[1].type] = tempchartSource2;
+                        }, 20);
+
+
+                    }
+                }
+
+                if (scope.contentData.layoutType === 'Chart-and-Quote') {
+                    scope.tanimChart1 = scope.animChart || {};
+                    scope.chartSource = scope.contentData.source;
+                    scope.barchartquote = scope.contentData.quote;
+                    scope[scope.contentData.type] = scope.contentData.Data[0].bar;
+                    scope.bscdxChartoptions = scope.contentData.Data[0].dataoption[0];
+                    scope.bscdxChartoptions.commonSeriesSettings.label.customizeText = function (data) {
+                        return data.valueText + '%';
+                    };
+                    if (scope.bscdxChartoptions.commonSeriesSettings.label.font !== undefined) {
+                        scope.bscdxChartoptions.commonSeriesSettings.label.font.size = '8px';
+                    }
+                    scope.tanimChart1.refresh = function () {
+                        var tempchartSource3 = scope[scope.contentData.type];
+                        scope[scope.contentData.type] = {};
+                        $timeout(function () {
+                            scope[scope.contentData.type] = tempchartSource3;
+
+                        }, 20);
+                    }
+                }
+
+                if (scope.contentData.layoutType === 'Richtext') {
+                    scope.richtextData = scope.contentData.relatedContent;
+                }
+                if (scope.contentData.layoutType === 'Title-and-Chart') {
+                    scope.tanimChart1 = scope.animChart || {};
+                    scope.chartSource = scope.contentData.source;
+                    scope.barcharttitle = scope.contentData.title;
+                    scope[scope.contentData.type] = scope.contentData.Data[0].bar;
+                    scope.bscdxChartoptions = scope.contentData.Data[0].dataoption[0];
+                    //    console.log(scope.bscdxChartoptions);
+                    if (scope.bscdxChartoptions.customizePoint !== undefined){
+                    var func = new Function('return ' + scope.bscdxChartoptions.customizePoint)();
+                    scope.bscdxChartoptions.customizePoint = func;
+                    }
+                    if (scope.bscdxChartoptions.customizeLabel !== undefined) {
+                        var func2 = new Function('return ' + scope.bscdxChartoptions.customizeLabel)();
+                        scope.bscdxChartoptions.customizeLabel = func2;
+                    }
+                    if (scope.bscdxChartoptions.valueAxis.label.customizeText !== undefined) {
+                        var func3 = new Function('return ' + scope.bscdxChartoptions.valueAxis.label.customizeText)();
+                        scope.bscdxChartoptions.valueAxis.label.customizeText = func3;
+                    }
+                    if (scope.bscdxChartoptions.commonSeriesSettings.label.customizeText !== undefined) {
+                        var func4 = new Function('return ' + scope.bscdxChartoptions.commonSeriesSettings.label.customizeText)();
+                        scope.bscdxChartoptions.commonSeriesSettings.label.customizeText = func4;
+                    }
+
+                    scope.tanimChart1.refresh = function () {
+                        var tempchartSource3 = scope[scope.contentData.type];
+                        scope[scope.contentData.type] = {};
+                        $timeout(function () {
+                            scope[scope.contentData.type] = tempchartSource3;
+
+                        }, 20);
+                    }
+                }
+
+                if (scope.contentData.layoutType === 'Circle-and-Text') {
+                    iconID = scope.contentData.idAndText;
+                    $timeout(function () {
+                        for (var i = 0; i < iconID.length; i++) {
+
+                            angular.element(document.querySelectorAll("#" + iconID[i].id)).css("cursor", "pointer");
+                            angular.element(document.querySelectorAll("#" + iconID[i].id)).attr("idIndex", i);
+                            angular.element(document.querySelectorAll("#" + iconID[i].id)).mouseover(function () {
+                                var tempClass = "icon icon-" + iconID[$(this).attr("idIndex")].iconID;
+                                var iconele = "<span class='" + tempClass + "'></span>";
+                                angular.element(document.querySelectorAll("#icon-field")).css("display", "block");
+                                angular.element(document.querySelectorAll("#title-feild")).css("color", "#8f1a95");
+                                angular.element(document.querySelectorAll("#title-feild")).css("text-align", "left");
+                                angular.element(document.querySelectorAll("#icon-field")).html(iconele);
+                                angular.element(document.querySelectorAll("#title-feild")).html(iconID[$(this).attr("idIndex")].title);
+                                angular.element(document.querySelectorAll("#text-feild")).html(iconID[$(this).attr("idIndex")].text);
+                            });
+                            angular.element(document.querySelectorAll("#" + iconID[i].id)).mouseleave(function () {
+                                angular.element(document.querySelectorAll("#icon-field")).css("display", "none");
+                                angular.element(document.querySelectorAll("#title-feild")).css("text-align", "center");
+                                angular.element(document.querySelectorAll("#title-feild")).css("color", "#8e8e8e");
+                                angular.element(document.querySelectorAll(".title-feild-text")).html("Long-term profitability with accurate view of demand across products, channels and customers and positioning your inventory for maximum service and cost-effectiveness<br/> <span class='smallhover'>Hover on the icons</span>");
+                                angular.element(document.querySelectorAll(".title-feild-normal")).html("Hover on the icons");
+                                angular.element(document.querySelectorAll("#text-feild")).html("");
+                                angular.element(document.querySelectorAll("#icon-field")).html("");
+                            });
+
+                        }
+                    }, 1000);
+
+                }
+
+                if (scope.contentData.layoutType === 'Icon-DonutChart-BarChart') {
+                    scope.tanimChart4 = scope.animChart || {};
+                    scope.Ricon = scope.contentData.Icon[0].Icon;
+                    scope.Rtitle = scope.contentData.Icon[0].title;
+                    scope.Rtext = scope.contentData.Icon[0].text;
+                    scope.pieLegend = scope.contentData.Donut[0].Data[0].donut;
+                    scope.Dtitle = scope.contentData.Donut[0].title;
+                    scope.Dtext = scope.contentData.Donut[0].text;
+                    scope[scope.contentData.Donut[0].type] = scope.contentData.Donut[0].Data[0].donut;
+                    scope.retailDonutOptions = scope.contentData.Donut[0].Data[0].dataoption[0];
+                    var func = new Function('return ' + scope.retailDonutOptions.series[0].label.customizeText)();
+                    scope.retailDonutOptions.series[0].label.customizeText = func;
+
+                    scope.Btitle = scope.contentData.Bar[0].title;
+                    scope.Btext = scope.contentData.Bar[0].text;
+                    scope[scope.contentData.Bar[0].type] = scope.contentData.Bar[0].Data[0].bar;
+                    scope.retailBarOptions = scope.contentData.Bar[0].Data[0].dataoption[0];
+
+                    var funcper = new Function('return ' + scope.retailBarOptions.commonSeriesSettings.label.customizeText)();
+                    scope.retailBarOptions.commonSeriesSettings.label.customizeText = funcper;
+                    scope.tanimChart4.refresh = function () {
+                        console.log(scope.contentData);
+                        var tempchartSource4 = scope[scope.contentData.Donut[0].type];
+                        var tempchartSource5 = scope[scope.contentData.Bar[0].type];
+                        scope[scope.contentData.Donut[0].type] = {};
+                        scope[scope.contentData.Bar[0].type] = {};
+                        $timeout(function () {
+                            scope[scope.contentData.Donut[0].type] = tempchartSource4;
+                            scope[scope.contentData.Bar[0].type] = tempchartSource5;
+
+                        }, 20);
+                    }
+                }
+                if (scope.contentData.layoutType === 'inner-slider-slide') {
+                    scope.horizontaloptions = {
+                        paginationClickable: true,
+                        spaceBetween: 50,
+                        slidesPerView: 'auto',
+                        nextButton: '.swiper-button-next',
+                        prevButton: '.swiper-button-prev',
+
+                    }
+                }
+
+                if (scope.contentData.layoutType === 'Title-Html-Chart') {
+                    scope.tanimChart1 = scope.animChart || {};
+                    scope.chartSource = scope.contentData.source;
+                    scope.percentage = scope.contentData.percentage;
+                    scope.pertext = scope.contentData.pertext;
+                    scope.barcharttitle = scope.contentData.title;
+                    scope[scope.contentData.type] = scope.contentData.Data[0].bar;
+                    scope.bscdxChartoptions = scope.contentData.Data[0].dataoption[0];
+                   
+
+                    scope.tanimChart1.refresh = function () {
+                        var tempchartSource3 = scope[scope.contentData.type];
+                        scope[scope.contentData.type] = {};
+                        $timeout(function () {
+                            scope[scope.contentData.type] = tempchartSource3;
+
+                        }, 20);
+                    }
+                }
+
+            }
+
+            scope.$on("$destroy", function () {
+                dummy = null;
+                json = null;
+                if (iconID) {
+                    for (var i = 0; i < iconID.length; i++) {
+
+                        if (angular.element(document.querySelectorAll("#" + iconID[i].id))) {
+                            angular.element(document.querySelectorAll("#" + iconID[i].id)).unbind("mouseenter");
+                            angular.element(document.querySelectorAll("#" + iconID[i].id)).unbind("mouseleave");
+                        }
+                    }
+                    iconID = null;
+                }
+
+            });
+        }
+    };
+})
+
+<<<<<<< HEAD
+
+    .directive("menuLayout", function (CloudMateService) {
+        return {
+            scope: true,
+            restrict: 'ECMA',
+            templateUrl: 'templates/solutionkits/new-menu-layout.html',
+            controller: function ($scope, $http, $sce, $state, $rootScope) {
+
+                $scope.trustAsHtml = function (content) {
+                    return $sce.trustAsHtml(content);
+                };
+                $scope.gotoHome = function (menuid) {
+                    $state.go("Industry Home", { menuid: menuid });
+                };
+
+                //To Expand all the menu items
+                $scope.expandAll = function () {
+                    angular.element(document.querySelectorAll('.expandAndCollapse')).css({ 'max-height': 'none', 'padding': '0px' });
+                    angular.element(document.querySelectorAll('#collapse-all-newicons')).css('display', 'block');
+                    angular.element(document.querySelectorAll('#expand-all-newicons')).css('display', 'none');
+                    angular.element(document.querySelectorAll('.reveal')).css('display', 'none');
+                    angular.element(document.querySelectorAll('.mainMenu-heading')).css('padding', '3vh 0vw 3vh 2vw');
+                    angular.element(document.querySelectorAll('.secondReveal')).css('display', 'none');
+                    angular.element(document.querySelectorAll('.clear')).css('display', 'block');
+
+
+                    if ($rootScope.openedChild) {
+                        var getTheOldOpenedChild = $rootScope.openedChild;
+                        getTheOldOpenedChild = getTheOldOpenedChild.split('-');
+                        var getTheOldOpenedChildLength = getTheOldOpenedChild.length;
+                        if (getTheOldOpenedChildLength === 1) {
+                            if (angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0])).hasClass("ion-ios-minus-outline")) {
+                                angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0])).removeClass("ion-ios-minus-outline")
+                            }
+                        }
+                        if (getTheOldOpenedChildLength === 2) {
+                            if (angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0])).hasClass("ion-ios-minus-outline")) {
+                                angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0])).removeClass("ion-ios-minus-outline")
+                            }
+                            if (angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1])).hasClass("ion-ios-minus-outline")) {
+                                angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1])).removeClass("ion-ios-minus-outline")
+                            }
+                        }
+                        if (getTheOldOpenedChildLength === 3) {
+                            if (angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0])).hasClass("ion-ios-minus-outline")) {
+                                angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0])).removeClass("ion-ios-minus-outline")
+                            }
+                            if (angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1])).hasClass("ion-ios-minus-outline")) {
+                                angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1])).removeClass("ion-ios-minus-outline")
+                            }
+                            if (angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1] + '-' + getTheOldOpenedChild[2])).hasClass("ion-ios-minus-outline")) {
+                                angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1] + '-' + getTheOldOpenedChild[2])).removeClass("ion-ios-minus-outline")
+                            }
+                        }
+                    }
+                };
+                //to collapse all the menu items
+                $scope.collapseAll = function () {
+                    $scope.searchText = "";
+                    angular.element(document.querySelectorAll('.expandAndCollapse')).css({ 'max-height': '0px', 'padding': '0px' });
+                    angular.element(document.querySelectorAll('#expand-all-newicons')).css('display', 'block');
+                    angular.element(document.querySelectorAll('#collapse-all-newicons')).css('display', 'none');
+                    angular.element(document.querySelectorAll('.reveal')).css('display', 'block');
+                    angular.element(document.querySelectorAll('.mainMenu-heading')).css('padding', '3vh 1vw 3vh 0vw');
+                    angular.element(document.querySelectorAll('.secondReveal')).css('display', 'block');
+                    angular.element(document.querySelectorAll('.clear')).css('display', 'none');
+                    angular.element(document.querySelectorAll('.removeminus')).removeClass("ion-ios-minus-outline")
+
+                };
+                //to open the menu 
+                $scope.callMenu = function () {
+                    angular.element(document.querySelectorAll('#menu-icon')).toggleClass('open');
+                    angular.element(document.querySelectorAll('#openCloseMenu')).toggleClass('open');
+                    angular.element(document.querySelectorAll('.forMenuAnimation')).toggleClass('addperspective');
+                    if (angular.element(document.querySelectorAll('#bsc-menu')).hasClass('menuOutLeft')) {
+                        angular.element(document.querySelectorAll('#bsc-menu')).removeClass('menuOutLeft');
+                        angular.element(document.querySelectorAll('#bsc-menu')).addClass('menuInLeft');
+                        // the below code is to open menu item which the user has already clicked previsouly 
+                        if ($rootScope.openedChild) {
+                            var getTheOldOpenedChild = $rootScope.openedChild;
+                            getTheOldOpenedChild = getTheOldOpenedChild.split('-');
+                            var getTheOldOpenedChildLength = getTheOldOpenedChild.length;
+                            if (getTheOldOpenedChildLength === 1) {
+                                angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0])).addClass("ion-ios-minus-outline");
+                                angular.element(document.querySelectorAll('#children-of-' + getTheOldOpenedChild[0])).css({ 'max-height': '100vh', 'padding': '0px' });
+                            }
+                            if (getTheOldOpenedChildLength === 2) {
+                                angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0])).addClass("ion-ios-minus-outline");
+                                angular.element(document.querySelectorAll('#children-of-' + getTheOldOpenedChild[0])).css({ 'max-height': '100vh', 'padding': '0px' });
+                                angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1])).addClass("ion-ios-minus-outline")
+                                angular.element(document.querySelectorAll('#children-of-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1])).css({ 'max-height': '100vh', 'padding': '0px' });
+                            }
+                            if (getTheOldOpenedChildLength === 3) {
+                                angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0])).addClass("ion-ios-minus-outline");
+                                angular.element(document.querySelectorAll('#children-of-' + getTheOldOpenedChild[0])).css({ 'max-height': '100vh', 'padding': '0px' });
+                                angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1])).addClass("ion-ios-minus-outline")
+                                angular.element(document.querySelectorAll('#children-of-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1])).css({ 'max-height': '100vh', 'padding': '0px' });
+                                angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1] + '-' + getTheOldOpenedChild[2])).addClass("ion-ios-minus-outline");
+                                angular.element(document.querySelectorAll('#children-of-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1] + '-' + getTheOldOpenedChild[2])).css({ 'max-height': '100vh', 'padding': '0px' });
+                            }
+                        }
+
+                    } else {
+                        angular.element(document.querySelectorAll('#bsc-menu')).addClass('menuOutLeft');
+                        angular.element(document.querySelectorAll('#bsc-menu')).removeClass('menuInLeft');
+                    }
+                };
+                //if the menu is already opened then we are closing
+                $scope.ifOpenThenClose = function () {
+                    if (angular.element(document.querySelectorAll('#bsc-menu')).hasClass('menuInLeft')) {
+                        angular.element(document.querySelectorAll('#bsc-menu')).removeClass('menuInLeft');
+                        angular.element(document.querySelectorAll('#bsc-menu')).addClass('menuOutLeft');
+                    }
+                    if (angular.element(document.querySelectorAll('#menu-icon')).hasClass('open')) {
+                        angular.element(document.querySelectorAll('#menu-icon')).removeClass('open');
+                    }
+                    if (angular.element(document.querySelectorAll('#openCloseMenu')).hasClass('open')) {
+                        angular.element(document.querySelectorAll('#openCloseMenu')).removeClass('open');
+                    }
+                    if (angular.element(document.querySelectorAll('.forMenuAnimation')).hasClass('addperspective')) {
+                        angular.element(document.querySelectorAll('.forMenuAnimation')).removeClass('addperspective')
+                    }
+                };
+                // this function is to open and close the children of the menu items
+                $scope.openTheChildren = function ($event) {
+                    var openedAt = angular.element($event.target).attr('opened-at');
+                    $scope.refrenceOfChildCalledAt = angular.element($event.target).attr('opened-at');
+                    openedAt = openedAt.split("-");
+                    if (!(angular.element($event.target).hasClass("ion-ios-minus-outline"))) {
+                        if (openedAt.length === 1) {
+                            angular.element(document.querySelectorAll('.expandAndCollapse')).css({ 'max-height': '0px', 'padding': '0px' });
+                            angular.element(document.querySelectorAll('#children-of-' + openedAt[0])).css({ 'max-height': '100vh', 'padding': '0px' });
+                        }
+                        if (openedAt.length === 2) {
+                            angular.element(document.querySelectorAll('.expandAndCollapse')).css({ 'max-height': '0px', 'padding': '0px' });
+                            angular.element(document.querySelectorAll('#children-of-' + openedAt[0])).css({ 'max-height': '100vh', 'padding': '0px' });
+                            angular.element(document.querySelectorAll('#children-of-' + openedAt[0] + '-' + openedAt[1])).css({ 'max-height': '100vh', 'padding': '0px' });
+                        }
+                        if (openedAt.length === 3) {
+                            angular.element(document.querySelectorAll('.expandAndCollapse')).css({ 'max-height': '0px', 'padding': '0px' });
+                            angular.element(document.querySelectorAll('#children-of-' + openedAt[0])).css({ 'max-height': '100vh', 'padding': '0px' });
+                            angular.element(document.querySelectorAll('#children-of-' + openedAt[0] + '-' + openedAt[1])).css({ 'max-height': '100vh', 'padding': '0px' });
+                            angular.element(document.querySelectorAll('#children-of-' + openedAt[0] + '-' + openedAt[1] + '-' + openedAt[2])).css({ 'max-height': '100vh', 'padding': '0px' });
+                        }
+                    }
+                    //to keep a track on where the user clicks sothat we can open the menu item after state tranistion
+                    if ($rootScope.openedChild === null || $rootScope.openedChild === undefined) {
+                        $rootScope.openedChild = $scope.refrenceOfChildCalledAt;
+                    } else {
+                        //this whole functionality is to toggle the icons from minus to plus based on the where the user clicks
+                        var getTheOldOpenedChild = $rootScope.openedChild;
+                        getTheOldOpenedChild = getTheOldOpenedChild.split("-");
+                        var getTheOldOpenedChildLength = getTheOldOpenedChild.length;
+                        var newOpenedChild = $scope.refrenceOfChildCalledAt;
+                        newOpenedChild = newOpenedChild.split("-");
+                        var i = 0;
+                        var newOpenedChildLength = newOpenedChild.length;
+                        if (newOpenedChildLength === getTheOldOpenedChildLength) {
+                            for (i = 0; i <= newOpenedChildLength; i++) {
+                                if (newOpenedChild[i] !== getTheOldOpenedChild[i]) {
+                                    if (angular.element(document.querySelectorAll('#revealIcon-' + $rootScope.openedChild)).hasClass("ion-ios-minus-outline")) {
+                                        angular.element(document.querySelectorAll('#revealIcon-' + $rootScope.openedChild)).removeClass("ion-ios-minus-outline")
+                                    }
+                                }
+                            }
+                        }
+                        if (newOpenedChildLength > getTheOldOpenedChildLength) {
+=======
+//------------------ Menu Directive
+.directive("menuLayout", function (CloudMateService) {
+    return {
+        scope: true,
+        restrict: 'ECMA',
+        templateUrl: 'templates/solutionkits/new-menu-layout.html',
+        controller: function ($scope, $http, $sce, $state, $rootScope) {
+
+            $scope.trustAsHtml = function (content) {
+                return $sce.trustAsHtml(content);
+            };
+            $scope.gotoHome = function (menuid) {
+                $state.go("Industry Home", { menuid: menuid });
+            };
+            $scope.expandAll = function () {
+                angular.element(document.querySelectorAll('.expandAndCollapse')).css({ 'max-height': '1000px', 'padding': '8px' });
+                //angular.element(document.querySelectorAll('.first-sub-menu')).css({ 'max-height': '250vh', 'opacity': '1' });
+                //angular.element(document.querySelectorAll('.second-sub-menu')).css({ 'height': '20vh', 'opacity': '1' });
+                //angular.element(document.querySelectorAll('.reveal,.secondReveal')).css('color', 'transparent');
+                angular.element(document.querySelectorAll('#collapse-all-newicons')).css('display', 'block');
+                angular.element(document.querySelectorAll('#expand-all-newicons')).css('display', 'none');
+            };
+            $scope.collapseAll = function () {
+                angular.element(document.querySelectorAll('.expandAndCollapse')).css({ 'max-height': '0px', 'padding': '0px' });
+                //angular.element(document.querySelectorAll('.first-sub-menu')).attr('style', '');
+                //angular.element(document.querySelectorAll('.second-sub-menu')).attr('style', '');
+                //angular.element(document.querySelectorAll('.reveal,.secondReveal')).css('color', '#E59111');
+                angular.element(document.querySelectorAll('#expand-all-newicons')).css('display', 'block');
+                angular.element(document.querySelectorAll('#collapse-all-newicons')).css('display', 'none');
+            };
+            $scope.callMenu = function () {
+                angular.element(document.querySelectorAll('#menu-icon')).toggleClass('open');
+                angular.element(document.querySelectorAll('#openCloseMenu')).toggleClass('open');
+                angular.element(document.querySelectorAll('.forMenuAnimation')).toggleClass('addperspective');
+                if (angular.element(document.querySelectorAll('#bsc-menu')).hasClass('menuOutLeft')) {
+                    angular.element(document.querySelectorAll('#bsc-menu')).removeClass('menuOutLeft');
+                    angular.element(document.querySelectorAll('#bsc-menu')).addClass('menuInLeft');
+                } else {
+                    angular.element(document.querySelectorAll('#bsc-menu')).addClass('menuOutLeft');
+                    angular.element(document.querySelectorAll('#bsc-menu')).removeClass('menuInLeft');
+                }
+            };
+            $scope.ifOpenThenClose = function () {
+                if (angular.element(document.querySelectorAll('#bsc-menu')).hasClass('menuInLeft')) {
+                    angular.element(document.querySelectorAll('#bsc-menu')).removeClass('menuInLeft');
+                    angular.element(document.querySelectorAll('#bsc-menu')).addClass('menuOutLeft');
+                }
+                if (angular.element(document.querySelectorAll('#menu-icon')).hasClass('open')) {
+                    angular.element(document.querySelectorAll('#menu-icon')).removeClass('open');
+                }
+                if (angular.element(document.querySelectorAll('#openCloseMenu')).hasClass('open')) {
+                    angular.element(document.querySelectorAll('#openCloseMenu')).removeClass('open');
+                }
+                if (angular.element(document.querySelectorAll('.forMenuAnimation')).hasClass('addperspective')) {
+                    angular.element(document.querySelectorAll('.forMenuAnimation')).removeClass('addperspective')
+                }
+            };
+            $scope.openTheChildren = function ($event) {
+                //console.log(gotElement);
+                var openedAt = angular.element($event.target).attr('opened-at');
+                if ($rootScope.openedChild === null || $rootScope.openedChild === undefined) {
+                    $rootScope.openedChild = openedAt;
+                } else {
+                    console.log($rootScope.openedChild);
+                    var getTheOldOpenedChild = $rootScope.openedChild;
+                    getTheOldOpenedChild = getTheOldOpenedChild.split("-");
+                    var getTheOldOpenedChildLength = getTheOldOpenedChild.length;
+                    var newOpenedChild = openedAt;
+                    newOpenedChild = newOpenedChild.split("-");
+                    var i = 0;
+                    var newOpenedChildLength = newOpenedChild.length;
+                    if (newOpenedChildLength === getTheOldOpenedChildLength) {
+                        for (i = 0; i <= newOpenedChildLength; i++) {
+                            if (newOpenedChild[i] !== getTheOldOpenedChild[i]) {
+                                console.log($rootScope.openedChild + "--old child");
+                                if (angular.element(document.querySelectorAll('#revealIcon-' + $rootScope.openedChild)).hasClass("ion-ios-minus-outline")) {
+                                    angular.element(document.querySelectorAll('#revealIcon-' + $rootScope.openedChild)).removeClass("ion-ios-minus-outline")
+                                }
+                                console.log(openedAt + "--new child");
+                            }
+                        }
+                    } else {
+                        if (newOpenedChildLength > getTheOldOpenedChildLength) {
+
+                        } else {
+                            for (var i = 0; i <= getTheOldOpenedChildLength; i++) {
+                                if (getTheOldOpenedChildLength === 1) {
+                                    if (angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0])).hasClass("ion-ios-minus-outline")) {
+                                        angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0])).removeClass("ion-ios-minus-outline")
+                                    }
+                                }
+                                if (getTheOldOpenedChildLength === 2) {
+                                    if (angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0])).hasClass("ion-ios-minus-outline")) {
+                                        angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0])).removeClass("ion-ios-minus-outline")
+                                    }
+                                    if (angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1])).hasClass("ion-ios-minus-outline")) {
+                                        angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1])).removeClass("ion-ios-minus-outline")
+                                    }
+                                }
+                                if (getTheOldOpenedChildLength === 3) {
+                                    if (angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0])).hasClass("ion-ios-minus-outline")) {
+                                        angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0])).removeClass("ion-ios-minus-outline")
+                                    }
+                                    if (angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1])).hasClass("ion-ios-minus-outline")) {
+                                        angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1])).removeClass("ion-ios-minus-outline")
+                                    }
+                                    if (angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1] + '-' + getTheOldOpenedChild[2])).hasClass("ion-ios-minus-outline")) {
+                                        angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1] + '-' + getTheOldOpenedChild[2])).removeClass("ion-ios-minus-outline")
+                                    }
+                                }
+                                
+                            }
+                            
+                        }
+                    }
+                    $rootScope.openedChild = openedAt;
+                }
+                openedAt = openedAt.split("-");                
+                if (openedAt.length === 1) {
+                    angular.element(document.querySelectorAll('.expandAndCollapse')).css({ 'max-height': '0px', 'padding': '0px' });
+                    angular.element(document.querySelectorAll('#children-of-' + openedAt[0])).css({ 'max-height': '500px', 'padding': '8px' });
+                    console.log('#children-of-' + openedAt[0]);
+                }
+                if (openedAt.length === 2) {
+                    angular.element(document.querySelectorAll('.expandAndCollapse')).css({'max-height': '0px','padding': '0px'});
+                    angular.element(document.querySelectorAll('#children-of-' + openedAt[0])).css({ 'max-height': '500px', 'padding': '8px' });
+                    angular.element(document.querySelectorAll('#children-of-' + openedAt[0] + '-' + openedAt[1])).css({ 'max-height': '500px', 'padding': '8px' });
+                    console.log('#children-of-' + openedAt[0] + '-' + openedAt[1]);
+                }
+                if (openedAt.length === 3) {
+                    angular.element(document.querySelectorAll('.expandAndCollapse')).css({ 'max-height': '0px', 'padding': '0px' });
+                    angular.element(document.querySelectorAll('#children-of-' + openedAt[0])).css({ 'max-height': '500px', 'padding': '8px' });
+                    angular.element(document.querySelectorAll('#children-of-' + openedAt[0] + '-' + openedAt[1])).css({ 'max-height': '500px', 'padding': '8px' });
+                    angular.element(document.querySelectorAll('#children-of-' + openedAt[0] + '-' + openedAt[1] + '-' + openedAt[2])).css({ 'max-height': '500px', 'padding': '8px' });
+                    console.log('#children-of-' + openedAt[0] + '-' + openedAt[1] + '-' + openedAt[2]);
+                }
+
+                if (angular.element($event.target).hasClass("ion-ios-minus-outline")) {
+                    if (openedAt.length === 1) {
+                        if (angular.element(document.querySelectorAll('.level-1-container .reveal'))) {
+                            var elements = angular.element(document.querySelectorAll('.level-1-container .reveal'))
+                            var i = 0;
+                            var eleLength = elements.length;
+                            for (i = 0; i <= eleLength; i++) {
+                                if (angular.element(elements[i]).hasClass("ion-ios-minus-outline")) {
+                                    angular.element(elements[i]).removeClass("ion-ios-minus-outline");
+                                }
+                            }
+                        }
+                        if (angular.element(document.querySelectorAll('.level-1-children .secondReveal'))) {
+                            var elements = angular.element(document.querySelectorAll('.level-1-children .secondReveal'))
+                            var i = 0;
+                            var eleLength = elements.length;
+                            for (i = 0; i <= eleLength; i++) {
+                                if (angular.element(elements[i]).hasClass("ion-ios-minus-outline")) {
+                                    angular.element(elements[i]).removeClass("ion-ios-minus-outline");
+                                }
+                            }
+                        }
+                        angular.element(document.querySelectorAll('#children-of-' + openedAt[0])).css({ 'max-height': '0px', 'padding': '0px' });
+                        console.log('#children-of-' + openedAt[0]);
+                    }
+                    if (openedAt.length === 2) {
+                        angular.element(document.querySelectorAll('#children-of-' + openedAt[0] + '-' + openedAt[1])).css({ 'max-height': '0px', 'padding': '0px' });
+                        console.log('#children-of-' + openedAt[0] + '-' + openedAt[1]);
+                    }
+                    if (openedAt.length === 3) {
+                        angular.element(document.querySelectorAll('#children-of-' + openedAt[0] + '-' + openedAt[1] + '-' + openedAt[2])).css({ 'max-height': '0px', 'padding': '0px' });
+                        console.log('#children-of-' + openedAt[0] + '-' + openedAt[1] + '-' + openedAt[2]);
+                    }
+                }
+
+                angular.element($event.target).toggleClass("ion-ios-minus-outline");
+
+                //console.log(openedAt);
+            };
+        },
+        link: function (scope, element, attrs, $rootScope, $state) {
+            
+            scope.items = CloudMateService.getJsonFile(attrs.menuId);
+            if (scope.items !== undefined) {
+>>>>>>> e597c11c9116ebab7bbfa5e5a812ce7003839b87
+
+                        }
+                        if (newOpenedChildLength < getTheOldOpenedChildLength) {
+                            for (var i = 0; i < newOpenedChildLength; i++) {
+                                if (newOpenedChild[i] !== getTheOldOpenedChild[i]) {
+                                    if (i == 0) {
+                                        if (getTheOldOpenedChildLength === 1) {
+                                            if (angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0])).hasClass("ion-ios-minus-outline")) {
+                                                angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0])).removeClass("ion-ios-minus-outline");
+                                            }
+                                        }
+                                        if (getTheOldOpenedChildLength === 2) {
+                                            if (angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1])).hasClass("ion-ios-minus-outline")) {
+                                                angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1])).removeClass("ion-ios-minus-outline");
+                                            }
+                                            if (angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0])).hasClass("ion-ios-minus-outline")) {
+                                                angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0])).removeClass("ion-ios-minus-outline");
+                                            }
+                                        }
+                                        if (getTheOldOpenedChildLength === 3) {
+                                            if (angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1] + '-' + getTheOldOpenedChild[2])).hasClass("ion-ios-minus-outline")) {
+                                                angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1] + '-' + getTheOldOpenedChild[2])).removeClass("ion-ios-minus-outline");
+                                            }
+                                            if (angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1])).hasClass("ion-ios-minus-outline")) {
+                                                angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1])).removeClass("ion-ios-minus-outline");
+                                            }
+                                            if (angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0])).hasClass("ion-ios-minus-outline")) {
+                                                angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0])).removeClass("ion-ios-minus-outline");
+                                            }
+                                        }
+                                    }
+                                    if (i == 1) {
+                                        if (angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1])).hasClass("ion-ios-minus-outline")) {
+                                            angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1])).removeClass("ion-ios-minus-outline");
+                                        }
+                                    }
+                                    if (i == 2) {
+                                        if (angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1])).hasClass("ion-ios-minus-outline")) {
+                                            angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1])).removeClass("ion-ios-minus-outline");
+                                        }
+                                    }
+                                } else {
+                                    if (getTheOldOpenedChildLength === 1) {
+                                        angular.element(document.querySelectorAll('.expandAndCollapse')).css({ 'max-height': '0px', 'padding': '0px' });
+                                    }
+                                    if (getTheOldOpenedChildLength === 2) {
+                                        if (angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1])).hasClass("ion-ios-minus-outline")) {
+                                            angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1])).removeClass("ion-ios-minus-outline");
+                                        }
+                                        angular.element(document.querySelectorAll('#children-of-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1])).css({ 'max-height': '0px', 'padding': '0px' });
+                                    }
+                                    if (getTheOldOpenedChildLength === 3) {
+                                        if (angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1] + '-' + getTheOldOpenedChild[2])).hasClass("ion-ios-minus-outline")) {
+                                            angular.element(document.querySelectorAll('#revealIcon-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1] + '-' + getTheOldOpenedChild[2])).removeClass("ion-ios-minus-outline");
+                                        }
+                                        angular.element(document.querySelectorAll('#children-of-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1])).css({ 'max-height': '0px', 'padding': '0px' });
+                                        angular.element(document.querySelectorAll('#children-of-' + getTheOldOpenedChild[0] + '-' + getTheOldOpenedChild[1] + '-' + getTheOldOpenedChild[2])).css({ 'max-height': '0px', 'padding': '0px' });
+                                    }
+                                }
+                            }
+
+                        }
+
+                        $rootScope.openedChild = $scope.refrenceOfChildCalledAt;
+                    }
+
+                    //this functionality is to toggle the plus and minus iocns and respectively close the menu  items
+                    if (angular.element($event.target).hasClass("ion-ios-minus-outline")) {
+                        if (openedAt.length === 1) {
+                            if (angular.element(document.querySelectorAll('.level-1-container .reveal'))) {
+                                var elements = angular.element(document.querySelectorAll('.level-1-container .reveal'))
+                                var i = 0;
+                                var eleLength = elements.length;
+                                for (i = 0; i <= eleLength; i++) {
+                                    if (angular.element(elements[i]).hasClass("ion-ios-minus-outline")) {
+                                        angular.element(elements[i]).removeClass("ion-ios-minus-outline");
+                                    }
+                                }
+                            }
+                            if (angular.element(document.querySelectorAll('.level-1-children .secondReveal'))) {
+                                var elements = angular.element(document.querySelectorAll('.level-1-children .secondReveal'))
+                                var i = 0;
+                                var eleLength = elements.length;
+                                for (i = 0; i <= eleLength; i++) {
+                                    if (angular.element(elements[i]).hasClass("ion-ios-minus-outline")) {
+                                        angular.element(elements[i]).removeClass("ion-ios-minus-outline");
+                                    }
+                                }
+                            }
+                            angular.element(document.querySelectorAll('.expandAndCollapse')).css({ 'max-height': '0px', 'padding': '0px' });
+                        }
+                        if (openedAt.length === 2) {
+                            angular.element(document.querySelectorAll('#children-of-' + openedAt[0] + '-' + openedAt[1])).css({ 'max-height': '0px', 'padding': '0px' });
+                        }
+                        if (openedAt.length === 3) {
+                            angular.element(document.querySelectorAll('#children-of-' + openedAt[0] + '-' + openedAt[1] + '-' + openedAt[2])).css({ 'max-height': '0px', 'padding': '0px' });
+                        }
+                    }
+                    angular.element($event.target).toggleClass("ion-ios-minus-outline");
+                };
+                //to keeep a track on where the user has clikced on the menu
+                $scope.menuOpenedAt = function (gotInput) {
+                    //console.log(gotInput);
+                    $rootScope.openedChild = gotInput;
+                };
+                $scope.clearSearch = function () {
+
+                };
+            },
+            link: function (scope, element, attrs, $rootScope, $state) {
+
+                scope.items = CloudMateService.getJsonFile(attrs.menuId);
+                if (scope.items !== undefined) {
+
+                    //console.log(scope.val);
+                }
+                scope.$on("$destroy", function () {
+                    scope.items = null;
+                });
+
+                scope.$on("$destroy", function () {
+                    scope.items = null;
+                });
+                if (scope.items !== undefined) {
+                    scope.IndustiesName = scope.items.Industries[0].Name;
+                }
+            }
+        };
+    })
+.directive('dynamicUrl', function () {
+    return {
+        restrict: 'A',
+        link: function postLink(scope, element, attr) {
+            element.attr('poster', attr.dynamicUrlPoster);
+            element.attr('data-video-id', attr.dynamicUrlVideoId);
+        }
+    };
+})
+// directive for  a watcher in search box(menu)
+.directive('watcher', [function () {
+    return {
+        restrict: 'A',
+        link: function (scope, elem, attrs) {
+            scope.$watch(attrs.ngModel, function (v) {
+                if (v) {
+                    //   console.log('I has value!');
+                    angular.element(document.querySelectorAll('.expandAndCollapse')).css({ 'max-height': 'none', 'padding': '0px' });
+                    angular.element(document.querySelectorAll('#collapse-all-newicons')).css('display', 'block');
+                    angular.element(document.querySelectorAll('#expand-all-newicons')).css('display', 'none');
+                    angular.element(document.querySelectorAll('.reveal')).css('display', 'none');
+                    angular.element(document.querySelectorAll('.mainMenu-heading')).css('padding', '3vh 0vw 3vh 2vw');
+                    angular.element(document.querySelectorAll('.secondReveal')).css('display', 'none');
+                    angular.element(document.querySelectorAll('.clear')).css('display', 'block');
+
+                } else {
+                    //   console.log('I has no value :(');
+                    scope.searchText = "";
+                    angular.element(document.querySelectorAll('.expandAndCollapse')).css({ 'max-height': '0px', 'padding': '0px' });
+                    angular.element(document.querySelectorAll('#expand-all-newicons')).css('display', 'block');
+                    angular.element(document.querySelectorAll('#collapse-all-newicons')).css('display', 'none');
+                    angular.element(document.querySelectorAll('.reveal')).css('display', 'block');
+                    angular.element(document.querySelectorAll('.mainMenu-heading')).css('padding', '3vh 1vw 3vh 0vw');
+                    angular.element(document.querySelectorAll('.secondReveal')).css('display', 'block');
+                    angular.element(document.querySelectorAll('.clear')).css('display', 'none');
+                }
+            });
+        }
+    }
+}])
+

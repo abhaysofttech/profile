@@ -1,0 +1,36 @@
+BEGIN:VCALENDAR
+PRODID:-//Microsoft Corporation//Outlook 10.0 MIMEDIR//EN
+VERSION:2.0
+METHOD:REQUEST
+BEGIN:VTIMEZONE
+TZID:India Time
+BEGIN:STANDARD
+DTSTART:20160101T000000
+TZOFFSETFROM:+0530
+TZOFFSETTO:+0530
+TZNAME:Standard Time
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+CLASS:PUBLIC
+DESCRIPTION:\n\n\n\nJOIN WEBEX MEETING\nhttps://jda.webex.com/jda-en/j.php?MTID=mba4d9008ed8bb0bd2833ab208382e268\nMeeting number (access code): 804 155 676\nMeeting password: 1234\n\n\n\nJOIN BY PHONE\n1-866-469-3239 Call-in toll-free number (US/Canada) \n1-650-429-3300 Call-in toll number (US/Canada)\n\nGlobal call-in numbers:\nhttps://jda.webex.com/jda-en/globalcallin.php?serviceType=MC&ED=541288572&tollFree=1\n\nToll-free dialing restrictions: \nhttps://www.webex.com/pdf/tollfree_restrictions.pdf\n\n\n\nCan't join the meeting?\nhttps://collaborationhelp.cisco.com/article/WBX000029055\n\n\nIMPORTANT NOTICE: Please note that this WebEx service allows audio and other information sent during the session to be recorded, which may be discoverable in a legal matter. By joining this session, you automatically consent to such recordings. If you do not consent to being recorded, discuss your concerns with the host or do not join the session.\n
+X-ALT-DESC;FMTTYPE=text/html:	<FONT SIZE="1" FACE="ARIAL">&nbsp;<BR>&nbsp;<BR>&nbsp;<BR><FONT SIZE="4" FACE="ARIAL">		<a href="https://jda.webex.com/jda-en/j.php?MTID=mba4d9008ed8bb0bd2833ab208382e268"><FONT SIZE="3" COLOR="#00AFF9" FACE="Arial">Join WebEx meeting</FONT></a>			<table>				<tr>					<td>						<FONT SIZE="2" COLOR="#666666" FACE="arial">Meeting number (access code): 804 155 676</FONT>					</td>				</tr>			</table>						<table><tr><td><FONT SIZE="2" COLOR="#666666" FACE="arial">Meeting password:</FONT></td><td><FONT SIZE="2"  COLOR="#666666" FACE="arial">1234</FONT></td></tr></table>		</FONT><br><FONT size="2" COLOR="#FF0000"></FONT><br><FONT SIZE="1" FACE="ARIAL">&nbsp;<BR>&nbsp;<BR></FONT><FONT SIZE="4" FACE="ARIAL"><FONT SIZE="3" COLOR="#666666" FACE="arial">Join by phone</FONT>&nbsp; <BR><FONT SIZE="2" COLOR="#666666" FACE="arial"><strong>1-866-469-3239</strong>&nbsp;Call-in toll-free number (US/Canada)</FONT>&nbsp; <BR><FONT SIZE="2" COLOR="#666666" FACE="arial"><strong>1-650-429-3300</strong>&nbsp;Call-in toll number (US/Canada)</FONT>&nbsp; <BR><a href="https://jda.webex.com/jda-en/globalcallin.php?serviceType=MC&ED=541288572&tollFree=1"><FONT SIZE="1" COLOR="#00AFF9" FACE="arial">Global call-in numbers</FONT></a><FONT SIZE="1" FACE="ARIAL">&nbsp;&nbsp;|&nbsp;&nbsp;</FONT><a href="https://www.webex.com/pdf/tollfree_restrictions.pdf"><FONT SIZE="1" COLOR="#00AFF9" FACE="arial">Toll-free calling restrictions</FONT></a> &nbsp; <BR></FONT><BR><BR>	&nbsp;<BR>	<a href="https://collaborationhelp.cisco.com/article/WBX000029055">	<FONT SIZE="1" COLOR="#00AFF9" FACE="Arial">Can't join the meeting?</FONT></a>	&nbsp;<BR>&nbsp;<BR><FONT COLOR="#A0A0A0" size="1" FACE="arial">IMPORTANT NOTICE: Please note that this WebEx service allows audio and other information sent during the session to be recorded, which may be discoverable in a legal matter. By joining this session, you automatically consent to such recordings. If you do not consent to being recorded, discuss your concerns with the host or do not join the session.</FONT></FONT>
+ATTENDEE;CN="Pradeep Gali";ROLE=REQ-PARTICIPANT;RSVP=TRUE:MAILTO:pradeep.gali@jda.com
+DTSTAMP:20180531T150000Z
+UID:abbeabb2-286c-481c-8949-41c77cbc1ed1
+PRIORITY:5
+DTSTART;TZID="India Time":20170223T203000
+DTEND;TZID="India Time":20170223T213000
+RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=TH
+SEQUENCE:1528365638
+SUMMARY:Pitch Perfect Review
+TRANSP:OPAQUE
+ORGANIZER;CN="Pradeep Gali":MAILTO:pradeep.gali@jda.com
+LOCATION:https://jda.webex.com/jda-en
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+END:VCALENDAR

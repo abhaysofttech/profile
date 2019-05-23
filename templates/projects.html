@@ -1,0 +1,186 @@
+<ion-view view-title="Abhay Narnaware" class="forMenuAnimation viewBlock" cache-view="false" img-call backgd="https://publiccdn.sharepointonline.com/jda365.sharepoint.com/sites/OneStop/NewOneStopCDN/JDAUniversity/background.jpg">
+    <!-- <div id="d"></div> -->
+    <ion-header>
+        <div class="row header middle-xs center-xs noPadding noMargin">
+            <div class="col-xs-10 noPadding ">
+                <div class="row middle-xs noPadding noMargin">
+                    <div class="col-xs-3 noPadding " ui-sref="home">
+                        <img class="img-responsive" src="images/Abhay_Narnaware.png" />
+                    </div>
+                     <div class="col-xs-9 noPadding menuSection">
+                        <span class="menuItem" ui-sref="projects">Projects</span>
+                        <a href="https://github.com/abhaysofttech" target="_blank"><span class="menuItem">Git Repo</span></a>
+                       <span class="menuItem" ui-sref="contact">Contact</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </ion-header>
+    <ion-content scroll="true">
+        <div class="viewContainer">
+            <div class="row noMargin noPadding">
+                <div class="col-lg-12 noPadding" style="margin: 0 auto">
+                    <div class="row noMargin noPadding">
+                        <div class="col-lg-12 noPadding">
+                            <div class="row noMargin noPadding">
+                                <div class="col-lg-12 dataContainer">
+
+                                    <div class="webinar-main-info">
+
+                                        <p class="no-margin">
+                                            In my 6 years of carieer i worked on most of the domain. Which always comes with learning and innovative skill for me. I worked in <b>HTML5, CSS3, JavaScript, Angular, jQuery, Ionic(Cordova, Phonegap) Mobile Application Development and Photoshop, Illustrator, Premier Pro.</b> <br/><br/>You can find project which i worked on it, click on the project to know about the projects.
+                                        </p>
+
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 noPadding right-panel">
+                            <!-- widget -->
+                            <div class="widget clearfix for-webinar">
+                                <!-- Heading -->
+                                <h4 class="widget-heading clearfix">About The Worked Projects</h4>
+                                <!-- /Heading -->
+                                <div class="row noMargin noPadding">
+                                    <div class="col-lg-4 rightPadding">
+                                        <!-- Engage Box2 -->
+                                        <div class="engage-box2 projectBody1" ng-repeat="project in projects track by $index">
+                                            <a href="" class="clearfix">
+                                                <h5>{{project.projectName}}<span class="viewAll" ui-sref="viewprojects({projectName: project.projectName,indxid:$index})" >View</span></h5>
+                                                <p class="series-count"><span class="block">{{project.projectDetails}}</span></p>
+                                            </a>
+                                            
+                                            <!-- Content Block -->
+                                            <div class="content-block">
+                                                <h5>Technologies</h5>
+                                                <div class="section-box-full">
+                                                    <p class="my-status-block">
+                                                        <span class="skills-parent">
+						<span class="skills-list">
+							<a href="#" class="skill btn-default" target="_blank">Angularjs</a><a href="#" class="skill btn-default" target="_blank">SharePoint</a><a href="#" class="skill btn-default" target="_blank">HTML5</a><a href="#" class="skill btn-default" target="_blank"> CSS3</a><a href="#" class="skill btn-default" target="_blank"> DevExtreme Chart</a><a href="#" class="skill btn-default" target="_blank"> Brightcove</a></span></span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <!-- /Content Block -->
+                                             <div class="content-block">
+                                                <h5>Teams Size : - {{project.teamSize}}</h5>
+                                            </div>
+                                            <p>
+                                                <img ng-src="images/projects/{{project.projectImage}}.jpg" class="img-responsive" />
+                                            </p>
+                                            <!-- Footer -->
+<!--
+                                            <footer>
+                                                <p>
+                                                    <span class="block1"><i class="icon view-icon"></i>{{project.view}} Views</span>
+                                                    <span class="block1 hide1"><i class="icon like-icon-small"></i>{{project.like}} Likes</span>
+                                                    <span class="block1"><i class="icon view-icon"></i>2 months ago</span>
+                                                    <span class="video"><i class="icon view-icon"></i>Video</span>
+
+                                                </p>
+                                            </footer>
+-->
+                                            <!-- /Footer -->
+                                        </div>
+                                    </div>
+                                  <div class="col-lg-4 rightPadding">
+                                        <!-- Engage Box2 -->
+                                        <div class="engage-box2 projectBody2" ng-repeat="project in projects track by $index">
+                                            <a href="" class="clearfix">
+                                                <h5>{{project.projectName}}{{$index}}<span class="viewAll" ui-sref="viewprojects({projectName: project.projectName,indxid:$index})" >View</span></h5>
+                                                <p class="series-count"><span class="block">{{project.projectDetails}}</span></p>
+                                            </a>
+                                            
+                                            <!-- Content Block -->
+                                            <div class="content-block">
+                                                <h5>Technologies</h5>
+                                                <div class="section-box-full">
+                                                    <p class="my-status-block">
+                                                        <span class="skills-parent">
+						<span class="skills-list">
+							<a href="#" class="skill btn-default" target="_blank">Angularjs</a><a href="#" class="skill btn-default" target="_blank">SharePoint</a><a href="#" class="skill btn-default" target="_blank">HTML5</a><a href="#" class="skill btn-default" target="_blank"> CSS3</a><a href="#" class="skill btn-default" target="_blank"> DevExtreme Chart</a><a href="#" class="skill btn-default" target="_blank"> Brightcove</a></span></span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <!-- /Content Block -->
+                                             <div class="content-block">
+                                                <h5>Teams Size : - {{project.teamSize}}</h5>
+                                            </div>
+                                            <p>
+                                                <img ng-src="images/projects/{{project.projectImage}}.jpg" class="img-responsive" />
+                                            </p>
+                                            <!-- Footer -->
+<!--
+                                            <footer>
+                                                <p>
+                                                    <span class="block1"><i class="icon view-icon"></i>{{project.view}} Views</span>
+                                                    <span class="block1 hide1"><i class="icon like-icon-small"></i>{{project.like}} Likes</span>
+                                                    <span class="block1"><i class="icon view-icon"></i>2 months ago</span>
+                                                    <span class="video"><i class="icon view-icon"></i>Video</span>
+
+                                                </p>
+                                            </footer>
+-->
+                                            <!-- /Footer -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 rightPadding">
+                                        <!-- Engage Box2 -->
+                                        <div class="engage-box2 projectBody3" ng-repeat="project in projects track by $index">
+                                            <a href="" class="clearfix">
+                                                <h5>{{project.projectName}}{{$index}}<span class="viewAll" ui-sref="viewprojects({projectName: project.projectName,indxid:$index})" >View</span></h5>
+                                                <p class="series-count"><span class="block">{{project.projectDetails}}</span></p>
+                                            </a>
+                                            
+                                            <!-- Content Block -->
+                                            <div class="content-block">
+                                                <h5>Technologies</h5>
+                                                <div class="section-box-full">
+                                                    <p class="my-status-block">
+                                                        <span class="skills-parent">
+						<span class="skills-list">
+							<a href="#" class="skill btn-default" target="_blank">Angularjs</a><a href="#" class="skill btn-default" target="_blank">SharePoint</a><a href="#" class="skill btn-default" target="_blank">HTML5</a><a href="#" class="skill btn-default" target="_blank"> CSS3</a><a href="#" class="skill btn-default" target="_blank"> DevExtreme Chart</a><a href="#" class="skill btn-default" target="_blank"> Brightcove</a></span></span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <!-- /Content Block -->
+                                             <div class="content-block">
+                                                <h5>Teams Size : - {{project.teamSize}}</h5>
+                                            </div>
+                                            <p>
+                                                <img ng-src="images/projects/{{project.projectImage}}.jpg" class="img-responsive" />
+                                            </p>
+                                            <!-- Footer -->
+<!--
+                                            <footer>
+                                                <p>
+                                                    <span class="block1"><i class="icon view-icon"></i>{{project.view}} Views</span>
+                                                    <span class="block1 hide1"><i class="icon like-icon-small"></i>{{project.like}} Likes</span>
+                                                    <span class="block1"><i class="icon view-icon"></i>2 months ago</span>
+                                                    <span class="video"><i class="icon view-icon"></i>Video</span>
+
+                                                </p>
+                                            </footer>
+-->
+                                            <!-- /Footer -->
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+
+                            </div>
+                            <!-- /widget -->
+
+                            <!-- /widget -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

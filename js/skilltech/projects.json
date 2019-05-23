@@ -1,0 +1,63 @@
+{
+	"projects": [{
+		"projectName": "JDA Cloud Central",
+		"projectDetails": "JDA Cloud Central application develope on top of Angularjs, sharepoint list. It's a completely dynamic application. All the contents comes from the SP list and images also load dynamicaly from the SP Document. This application is design about the Cloud Central which help the customer to undersand more about the company in cloud. ",
+		"technologies": ["Angularjs", "SharePoint", "HTML", "CSS3", "DevExtreme Chart", "Brightcove"],
+		"teamSize": "2",
+		"role": "As a UX designers and UI Developer are primarily concerned with how the product feels.  A given design problem has no single right answer. Explore  many different approaches to solving a specific user problem. The broad  responsibility is to ensure that the product logically  flows from one step to the next. One way that to do this is by conducting in-person user tests to observe one's behavior. By  identifying verbal and non-verbal stumbling blocks, refine and  iterate to create the \"best\" user experience.<br/><br/>I’ve been lucky enough to be contributing to defining roles and just where people like me will sit within our structure at work. I've usally follow the development process, there are three phases: <b>“Design”, “Design Implementation”,</b> and <b>Application Development</b>",
+		"keyPoint": ["Design a prototype & workflow", "Create a layouts in photoshop", "Discuss & upderstand the application flow", "Create a application route", "Develope a application", "Testing the responsive & behaviour of app"],
+		"projectImage": "Cloud_Central",
+		"views": "100",
+		"like": "10",
+		"projectStartDate": "",
+		"video": ""
+	}, {
+		"projectName": "Pitch Perfect",
+		"projectDetails": "Pitch Perfect application is develop to pitch the customer. It is develope on top of Angularjs, ionic, sharepoint list. Pitch Perfect is an application to get the document from the resourece using free form search architecture. It's a completely dynamic application.",
+		"technologies": ["Angularjs", "SharePoint", "HTML", "CSS3", "DevExtreme Chart", "Brightcove"],
+		"teamSize": "3",
+		"role": "As a UX designers and UI Developer are primarily concerned with how the product feels.  A given design problem has no single right answer. Explore  many different approaches to solving a specific user problem. The broad  responsibility is to ensure that the product logically  flows from one step to the next. One way that to do this is by conducting in-person user tests to observe one's behavior. By  identifying verbal and non-verbal stumbling blocks, refine and  iterate to create the \"best\" user experience.<br/><br/>I’ve been lucky enough to be contributing to defining roles and just where people like me will sit within our structure at work. I've usally follow the development process, there are three phases: <b>“Design”, “Design Implementation”,</b> and <b>Application Development</b>",
+		"keyPoint": ["Design a prototype & workflow", "Create a layouts in photoshop", "Discuss & upderstand the application flow", "Create a application route", "Develope a application", "Testing the responsive & behaviour of app"],
+		"projectImage": "Pitch_Perfect",
+		"views": "100",
+		"like": "10",
+		"projectStartDate": "",
+		"video": ""
+	}, {
+		"projectName": "One Stop",
+		"projectDetails": "JDA Cloud Central application develope on top of Angularjs, sharepoint list. It's a completely dynamic application. All the contents comes from the SP list and images also load dynamicaly from the SP Document. This application is design about the Cloud Central which help the customer to undersand more about the company in cloud. ",
+		"technologies": ["Angularjs", "SharePoint", "HTML", "CSS3", "DevExtreme Chart", "Brightcove"],
+		"teamSize": "2",
+		"role": "As a UX designers and UI Developer are primarily concerned with how the product feels.  A given design problem has no single right answer. Explore  many different approaches to solving a specific user problem. The broad  responsibility is to ensure that the product logically  flows from one step to the next. One way that to do this is by conducting in-person user tests to observe one's behavior. By  identifying verbal and non-verbal stumbling blocks, refine and  iterate to create the \"best\" user experience.<br/><br/>I’ve been lucky enough to be contributing to defining roles and just where people like me will sit within our structure at work. I've usally follow the development process, there are three phases: <b>“Design”, “Design Implementation”,</b> and <b>Application Development</b>",
+		"keyPoint": ["Design a prototype & workflow", "Create a layouts in photoshop", "Discuss & upderstand the application flow", "Create a application route", "Develope a application", "Testing the responsive & behaviour of app"],
+		"projectImage": "OneStop",
+		"views": "100",
+		"like": "10",
+		"projectStartDate": "",
+		"video": ""
+	}, {
+		"projectName": "Idea Portal",
+		"projectDetails": "JDA Cloud Central application develope on top of Angularjs, sharepoint list. It's a completely dynamic application. All the contents comes from the SP list and images also load dynamicaly from the SP Document. This application is design about the Cloud Central which help the customer to undersand more about the company in cloud. ",
+		"technologies": ["Angularjs", "SharePoint", "HTML", "CSS3", "DevExtreme Chart", "Brightcove"],
+		"teamSize": "2",
+		"role": "As a UX designers and UI Developer are primarily concerned with how the product feels.  A given design problem has no single right answer. Explore  many different approaches to solving a specific user problem. The broad  responsibility is to ensure that the product logically  flows from one step to the next. One way that to do this is by conducting in-person user tests to observe one's behavior. By  identifying verbal and non-verbal stumbling blocks, refine and  iterate to create the \"best\" user experience.<br/><br/>I’ve been lucky enough to be contributing to defining roles and just where people like me will sit within our structure at work. I've usally follow the development process, there are three phases: <b>“Design”, “Design Implementation”,</b> and <b>Application Development</b>",
+		"keyPoint": ["Design a prototype & workflow", "Create a layouts in photoshop", "Discuss & upderstand the application flow", "Create a application route", "Develope a application", "Testing the responsive & behaviour of app"],
+		"projectImage": "Idea_Portal",
+		"views": "100",
+		"like": "10",
+		"projectStartDate": "",
+		"video": ""
+	}, {
+		"projectName": "Solutions Kit",
+		"projectDetails": "Solutions Kit is the portal which represent the Business Chalenges in market, how the company deal with it and prove the Solution on it also it provide the graphical presentational of company case studies. Also shows the Video and Pictorial presentation to pitch the customer and the employee working in the organisation. It is develope on top of Angularjs, ionic, sharepoint list. Pitch Perfect is an application to get the document from the resourece using free form search architecture. It's a completely dynamic application. ",
+		"technologies": ["Angularjs", "SharePoint", "HTML", "CSS3", "DevExtreme Chart", "Brightcove"],
+		"teamSize": "2",
+		"role": "As a UX designers and UI Developer are primarily concerned with how the product feels.  A given design problem has no single right answer. Explore  many different approaches to solving a specific user problem. The broad  responsibility is to ensure that the product logically  flows from one step to the next. One way that to do this is by conducting in-person user tests to observe one's behavior. By  identifying verbal and non-verbal stumbling blocks, refine and  iterate to create the \"best\" user experience.<br/><br/>I’ve been lucky enough to be contributing to defining roles and just where people like me will sit within our structure at work. I've usally follow the development process, there are three phases: <b>“Design”, “Design Implementation”,</b> and <b>Application Development</b>",
+		"keyPoint": ["Design a prototype & workflow", "Create a layouts in photoshop", "Discuss & upderstand the application flow", "Create a application route", "Develope a application", "Testing the responsive & behaviour of app"],
+		"projectImage": "Solutions_Kit",
+		"views": "100",
+		"like": "10",
+		"projectStartDate": "",
+		"video": ""
+	}]
+}

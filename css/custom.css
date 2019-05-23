@@ -1,0 +1,428 @@
+html,
+/*
+    body {
+        height: 100%;
+        font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
+    }
+*/
+    body {
+    font-family: 'lato', Arial, Helvetica;
+    font-size: 1em;
+    line-height: 1.4;
+    overflow-x: hidden;
+    background: #f2f2f2;
+}
+    .redBorder {
+        border: 2px solid red;
+    }
+    
+    .blueBorder {
+        border: 2px solid #004f71;
+    }
+    
+    .noMargin {
+        margin: 0px !important;
+    }
+    
+    .noPadding {
+        padding: 0px !important;
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+   
+    h2 {
+        font-size: 1.4em;
+    }
+    
+    h3,
+    .h3 {
+        font-size: 1.2em;
+        margin: 0px !important;
+    }
+    
+    section {
+        padding: 10px 0;
+    }
+    
+    .scroll {
+        overflow: scroll;
+    }
+    
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+   
+    font-family: "-apple-system", "Helvetica Neue","Segoe UI";
+}
+    .viewBlock {
+        /* background-image: url('https://publiccdn.sharepointonline.com/jda365.sharepoint.com/sites/OneStop/NewOneStopCDN/JDAUniversity/background.jpg'); */
+        background-position: center;
+        background-size: cover;
+    }
+    
+    .full-height {
+        height: 100%;
+    }
+    
+.rightPadding{
+    padding: 0px !important;
+   padding-right: 5px !important;
+}
+    .middle-xs {
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        -webkit-box-align: center;
+        align-items: center;
+    }
+    
+    .center-xs {
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .img-responsive {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        max-height: 100%;
+    }
+    
+    .logo-responsive {
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+.header{
+   position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: #ffffff;
+    z-index: 1001;
+    height: 56px;
+    padding: 12px 0;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0)
+}
+.menuSection{
+    text-align: right;
+}
+.menuItem{
+        padding: 9px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.menuItem:hover{
+       color:#ce0037;
+}
+/*
+.viewContainer{
+    margin-top: 58px;
+        margin-left: 0;
+    height: calc(100% - 60px);
+    
+}
+*/
+@media (min-width: 768px){
+.viewContainer {
+    width: 740px;
+    }}
+@media (min-width: 992px){
+.viewContainer {
+    width: 960px;
+    }}
+@media (min-width: 1200px){
+.viewContainer {
+    width: 1160px;
+    }}
+@media (min-width: 992px){
+.viewContainer {
+    width: 980px;
+    }}
+@media (min-width: 1200px){
+.viewContainer {
+    width: 1160px;
+}
+}
+
+
+
+
+.viewContainer {
+    margin-right: auto;
+    margin-left: auto;
+     margin-top: 58px;
+    height: calc(100% - 60px);
+}
+.dataContainer{
+        border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.18);
+    margin-bottom: 16px;
+}
+
+.webinar-main-info {
+    border-bottom: 1px solid #dadada;
+    padding: 16px;
+}
+
+.button2 {
+    background: none;
+    color: #d7263d;
+    text-transform: capitalize;
+    border-radius: 3px;
+    border: solid 1px #d7263d;
+    font-size: 14px;
+    line-height: 16px;
+    padding: 7px 12px;
+    font-weight: bold;
+    transition: all .1s cubic-bezier(0.19, 1, 0.22, 1) 0.1s;
+    -webkit-transition: all .1s cubic-bezier(0.19, 1, 0.22, 1) 0.1s;
+    -moz-transition: all .1s cubic-bezier(0.19, 1, 0.22, 1) 0.1s;
+    -o-transition: all .1s cubic-bezier(0.19, 1, 0.22, 1) 0.1s;
+    -ms-transition: all .1s cubic-bezier(0.19, 1, 0.22, 1) 0.1s;
+    outline: none;
+}
+.webinar-main-info .block {
+    margin-right: 8px;
+    font-size: 12px;
+    color: #8a858d;
+    padding: 4px 0px;
+    display: inline-block;
+}
+.webinar-main-info .like-share-buttons {
+    float: right;
+    position: relative;
+}
+.like-share-buttons .btn {
+    min-width: 70px;
+    height: 24px;
+    border: 1px solid #c2c2c2;
+    border-radius: 3px;
+    color: #8a858d;
+    margin-left: 5px;
+    line-height: 20px;
+    text-align: center;
+    display: inline-block;
+    padding: 0px;
+}
+
+.like-share-buttons .popover {
+    width: 216px;
+    z-index: 10;
+    left: auto;
+    right: 0px;
+    top: 30px;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.11);
+    border: 1px solid #dadada;
+    border-radius: 3px;
+}
+.like-share-buttons .btn {
+    min-width: 70px;
+    height: 24px;
+    border: 1px solid #c2c2c2;
+    border-radius: 3px;
+    color: #8a858d;
+    margin-left: 5px;
+    line-height: 20px;
+    text-align: center;
+    display: inline-block;
+    padding: 0px;
+        text-decoration: none;
+}
+ .webinar-main-info .follow-btn {
+    min-width: 120px;
+    float: right;
+}
+.webinar-author-info figure {
+    float: left;
+    width: 150px;
+    height: 150px;
+        margin-right: 30px;
+}
+.webinar-author-info figure img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+.webinar-author-info .details {
+    margin-left: 180px;
+}
+.webinar-author-info .details p .company {
+    display: block;
+    color: #8a858d;
+    margin-top: 4px;
+    font-size: 12px;
+    line-height: 16px;
+}
+h2 {
+    font-size: 24px;
+    line-height: 32px;
+font-weight: 400;
+}
+h5 {
+    font-size: 14px;
+    line-height: 20px;
+    color: #19171A;
+    font-weight: 600;
+}
+h4 {
+    font-size: 18px;
+    line-height: 22px;
+}
+p {
+    font-size: 14px;
+    color: #4A4548;
+    line-height: 20px;
+    margin-bottom: 16px;
+}
+.webinar-author-info .details h5 {
+    margin: 0;
+    margin-bottom: 2px;
+}
+#webinar-description .description-header {
+    padding: 16px 16px 0px 16px;
+}
+#webinar-description .tabs1 .tab-content {
+    padding: 16px;
+}
+.post li {
+    margin-bottom: 10px;
+    color: #4a4548;
+    font-size: 14px;
+    line-height: 20px;
+    padding-left: 10px;
+}
+#webinar-description .post li {
+    padding-left: 0px;
+}
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+#webinar-description .section-box-full .my-status-block .skills-list a {
+    background: #f2f2f2;
+    border: 1px solid #dadada;
+    font-size: 12px;
+}
+
+.section-box-full .my-status-block .skills-list a {
+    text-decoration: none;
+    display: inline-block;
+    margin: 2px 4px 2px 0;
+    color: #8a858d;
+    background: #f0f0f0;
+    padding: 1px 9px 3px;
+    border-radius: 3px;
+}
+.btn:hover, .btn:focus, .btn.focus {
+    color: #333;
+    text-decoration: none;
+}
+
+a{
+    text-decoration: none;
+    color:#000;
+}
+.centerText{
+    text-align: center;
+}
+.engage-box2 {
+    background: #fff;
+    padding: 12px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.18);
+    border-radius: 6px;
+}
+.engage-box2 > a {
+    text-decoration: none;
+}
+.engage-box2 footer p {
+    margin: 0px;
+}
+
+.engage-box2 p {
+    color: #8a858d;
+}
+.engage-box2 footer p .block {
+    margin-right: 12px;
+    font-size: 12px;
+    color: #8a858d;
+}
+.engage-box2 footer .icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 4px;
+    display: inline-block;
+    background-image: url(images/tg_images_new/sprites.svg);
+    background-repeat: -no-repeat;
+    vertical-align: text-bottom;
+}
+.engage-box2 footer .icon.like-icon-small {
+    background-position: -226px -407px;
+}
+.engage-box2 footer .icon.view-icon {
+    background-position: -118px -309px;
+}
+a:hover {
+    color: #d7263d;
+    text-decoration: none;
+}
+span.viewAll {
+    float: right;
+    font-size: 14px;
+    color: #ce0036;
+        margin-right: 5px;
+    cursor: pointer;
+}
+.video{
+    color: #ce0037;
+    float: right;
+}
+li{
+    font-size: 14px;
+    color: #8a858d;
+}
+
+.projectBody1:nth-child(1n) {
+   display: block;
+}
+
+.projectBody1:nth-child(2n) {
+    display: none;
+}
+
+.projectBody1:nth-child(3n) {
+    display: none;
+}
+
+
+.projectBody2:nth-child(1n) {
+    display: none;
+}
+.projectBody2:nth-child(2n) {
+   display: block;
+}
+.projectBody2:nth-child(3n) {
+    display: none;
+}
+.projectBody3:nth-child(1n) {
+    display: none;
+}
+.projectBody3:nth-child(2n) {
+    display: none;
+}
+.projectBody3:nth-child(3n) {
+    display: block;
+}
